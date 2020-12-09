@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+  <title>HW3 | Coding Quiz</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <!-- Jenner CSS-->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="nav-jg">
+    <ul class="nav">
+      <li class="nav-item nav-item-jg">
+        <p class="nav-link active" href="#">See previous scores</p>
+    </ul>
+  </div>
+  <div class="myDiv">
+    <div class="bg">
+      <main class="container container-jg">
+        <section id="startPage" class="show">
+          <div class="jumbotron">
+            <h1 class="display-4 display-4jg">Coding Quiz</h1>
+            <p class="lead">
+              Take a little quiz to test your knowledge of
+              coding fundamentals. You'll have 10 seconds to answer to each question. Good luck!
+            </p>
+            <hr class="my-4" />
+            <a class="btn btn-primary btn-lg btn-startjg href=" #" role="button">START QUIZ</a>
+          </div>
+        </section>
+        <!-- Quiz -->
+        <section id="quiz-page" class="page hide">
+          <div class="questionDiv">
+            <h4 class="questionEl">Question goes here</h4>
+          </div>
+          <button class="answerBtn" id="btnA" value="A">Answer A</button>
+          <button class="answerBtn" id="btnB" value="B">Answer B</button>
+          <button class="answerBtn" id="btnC" value="C">Answer C</button>
+          <button class="answerBtn" id="btnD" value="D">Answer D</button>
+          <p><span class="notifier"></span><span class="timer"></span></p>
+        </section>
+        <!-- Finish  Quiz -->
+        <section id="finish-page" class="page hide">
+          <h1>Quiz Completed!</h1>
+          <h4 class="score"></h4>
+          <form method="POST">
+            <h4 for="addname">Enter first name to record score to the quiz scoreboard: </h4>
+            <input id="name" name="name">
+            <button class="submit-btn btn-jg">Add My Initials</button>
+          </form>
+          <button class="return-btn btn-jg">Start Over</button>
+        </section>
+
+        <!-- Score Page  -->
+        <section id="score-page" class="page hide">
+          <h1>Score Totals</h1>
+          <ul id="scoreboard">
+            <!-- SCORES GO HERE -->
+          </ul>
+
+          <div class="lastBtns">
+            <button class="return-btn return-btn2">Start Over</button>
+            <button class="score-btn btn-jg">Clear All Scores</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+/* font-family: "Open Sans", "sans-serif";
+font-family: "Roboto", "sans-serif"; */
+
+body,
+a {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-image: url("assets/bg.png");
+
+  background-size: cover;
+}
+
+.display-4jg,
+.questionEl,
+.timer,
+.score,
+#scoreboard {
+  font-family: "Roboto", sans-serif;
+}
+
+.container-jg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link {
+  color: #fff;s
+  font-style: italic;
+}
+
+#nav-jg,
+#nav-jg li {
+  background-color: blue;
+}
+
+#nav-jg {
+  margin-bottom: 1rem;
+}
+
+.page {
+  background-color: #fffdfb;
+  height: 500px;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  box-shadow: 5px 10px lightgrey;
+  border: solid 3px lightgrey;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.timer,
+#scoreboard {
+  font-size: 1.5rem;
+}
+
+.questionEl {
+  width: 550px;
+  font-style: italic;
+}
+
+/* BUTTONS */
+
+button,
+*:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+.answerBtn {
+  display: block;
+  width: 500px;
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border-color: solid 0.05px #c4c5c8;
+  text-align: center;
+}
+
+.btn-jg,
+.btn-startjg,
+.return-btn,
+.return-btn2 {
+  background-color: #ff6700;
+  color: white;
+}
+
+#name,
+.submit-btn {
+  width: 20rem;
+  margin: 0 auto;
+  float: left;
+}
+
+.return-btn,
+.score-btn {
+  display: inline;
+  margin-right: auto;
+  margin-left: auto;
+  width: 150px;
+  height: 35px;
+}
+
+.timer {
+  display: block;
+  width: 500px;
+  height: 50px;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: solid grey 1px;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* PAGE = QUIZ PAGE */
+.questionEl {
+  text-align: left;
+  padding-bottom: 40px;
+}
+
+#finish-page h1,
+#score-page h1 {
+  text-align: center;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+form {
+  margin-bottom: 70px;
+}
+
+/* PAGE = FINISH PAGE */
+.questionEl,
+form {
+  height: 100px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-weight: bold;
+}
+
+#scoreboard {
+  list-style-type: none;
+}
+
+ul li, #scoreboard {
+  height: 50px;
+  margin: 5px 0;
+  padding: 5px;
+  background-color: yellow;
+  width: 600px;
+  text-align: center;
+}
+
+ul li:nth-child(odd) {
+  background-color: #ffffb7;
+}
+
+/* Score Message */
+.score {
+  color: #0000FF;
+  margin-bottom: 20px;
+}
+
+.addName {
+  margin-bottom: 20px;
+}
+
+
+.lastBtns {
+  position: fixed;
+  margin-top: 300px;
+}
