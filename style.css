@@ -154,7 +154,7 @@ form {
   list-style-type: none;
 }
 
-ul li, #scoreboard {
+/* ul h4, #scoreboard {
   height: 50px;
   margin: 5px 0;
   padding: 5px;
@@ -163,9 +163,9 @@ ul li, #scoreboard {
   text-align: center;
 }
 
-ul li:nth-child(odd) {
+ul h4:nth-child(odd) {
   background-color: #ffffb7;
-}
+} */
 
 /* Score Message */
 .score {

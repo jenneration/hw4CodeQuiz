@@ -136,6 +136,11 @@ function endQuiz() {
   console.log(score);
 }
 
+//Clear Scores
+clearScore.addEventListener("click", function clearScores() {
+  localStorage.clear();
+  scoreboard.style.display = "none";
+});
 //Return to Start from Quiz Completed page
 function returnToStart(event) {
   event.stopPropagation();
@@ -153,54 +158,7 @@ function returnToStart2(event) {
   questionIndex = 0;
   score = 0;
 }
-
-////////////////START TROUBLE AREA: LOCAL STORAGE ///////////////
-
-//TODO: fix section below
-//Check local storage for previous scores WORKING
-var scores = JSON.parse(localStorage.getItem("scores"));
-//If previous scores, add to text content -- WORKING
-scoreboard.textContent = scores;
-
-//Empty array for names to be added to
-var nameScores = [];
-
-//Add name to scoreboard, add to local storage
-function addNameToScoreboard(event) {
-  event.preventDefault();
-
-  var name = nameEle.value;
-  var li = document.createElement("li");
-  li.innerHTML = "name";
-  scoreboard.appendChild(li);
-
-  //Render correct pages
-  scorePage.classList.remove("hide");
-  finishPage.classList.add("hide");
-
-  //TODO: TRY SEPARATING INTO 2 SMALLER FUNCTIONS AND CALL
-  nameScores.push({ name, score });
-  console.log(nameScores);
-  //Check for previous scores
-  var scores = JSON.parse(localStorage.getItem("scores"));
-  console.log(scores);
-
-  //TODO: TRY SEPARATING INTO 2 SMALLER FUNCTIONS AND CALL
-  //Set new scores
-  localStorage.setItem("name", JSON.stringify(name));
-  localStorage.setItem("score", JSON.stringify(score));
-  JSON.stringify([{ name, score }].concat(scores));
-}
-
-//Clear Scores
-//TODO: Needs to also clear input - put that part in JSON function somewhere
-clearScore.addEventListener("click", function clearScores() {
-  localStorage.clear();
-  scoreboard.style.display = "none";
-});
-
-/////////////// END OF TROUBLE AREA //////////////////
-
+//BUTTONS
 //Start quiz
 startBtn.addEventListener("click", startQuiz);
 
@@ -216,5 +174,102 @@ returnBtn.addEventListener("click", returnToStart);
 //Return to Start from Scoreboard Page
 returnBtn2.addEventListener("click", returnToStart2);
 
-//Add name to scoreboard, add to local Storage funcion
+/////////////////////////////////////////////////
+
+//Add name to scoreboard
+// submitBtn.addEventListener("click", function(event){
+//   event.preventDefault();
+
+// renderScoreboard();
+
+// });
+// //Add name to scoreboard
 submitBtn.addEventListener("click", addNameToScoreboard);
+
+//Check local storage for previous scores
+
+var storedNameScores = JSON.parse(localStorage.getItem("nameScores")) || [];
+
+//Sort by high to low score **
+storedNameScores.sort(function (a, b) {
+  return b.score - a.score;
+});
+
+// var nameScores = [];
+
+function storenameScores() {
+  localStorage.setItem("nameScores", JSON.stringify(storedNameScores));
+}
+
+//renderScoreboard();
+//Create scoreboard elements
+// function renderScoreboard() {
+//   scoreboard.innerHTML = "";
+//   var name = nameEle.value;
+//   // nameScores.forEach(function (person) {
+//   //   var h4 = document.createElement("h4");
+//   //   h4.innerHTML = person.name + " " + person.score;
+//   //   scoreboard.appendChild(h4);
+//   // });
+
+//   for (var i = 0; i < nameScores.length; i++) {
+//     var h4 = document.createElement("h4");
+//     h4.innerHTML = person.name + " " + person.score;
+//     scoreboard.appendChild(h4);
+//   }
+
+//   //Render correct pages **
+//   scorePage.classList.remove("hide");
+//   finishPage.classList.add("hide");
+
+//   if (name !== "") {
+//     alert("Please enter name.");
+//     return;
+//   } else {
+//     var player = {
+//       name,
+//       score,
+//     };
+//     nameScores.push(player);
+//   }
+// }
+
+/////////////////////////START//////////////////////////
+/////LOCAL STORAGE WORKING BLOCK BUT NOT SHOWING LATEST SCORE
+
+// //Add name to scoreboard
+function addNameToScoreboard(event) {
+  //Push new score to
+  event.preventDefault();
+  var name = nameEle.value;
+
+  if (name !== "") {
+    var player = {
+      name,
+      score,
+    };
+    storedNameScores.push(player);
+  } else {
+    alert("Please enter name.");
+    return;
+  }
+  storenameScores();
+  storedNameScores.forEach(function (person) {
+    var h4 = document.createElement("h4");
+    h4.innerHTML = person.name + " " + person.score;
+    scoreboard.appendChild(h4);
+  });
+
+  //Render correct pages **
+  scorePage.classList.remove("hide");
+  finishPage.classList.add("hide");
+  // console.log(scores);
+}
+
+//Clear Scores
+clearScore.addEventListener("click", function clearScores() {
+  localStorage.clear();
+  scoreboard.style.display = "none";
+});
+
+///////////////////////END///////////////////////////
