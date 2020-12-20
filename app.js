@@ -199,6 +199,7 @@ storedNameScores.sort(function (a, b) {
 
 function storenameScores() {
   localStorage.setItem("nameScores", JSON.stringify(storedNameScores));
+  console.log(storedNameScores);
 }
 
 //renderScoreboard();
